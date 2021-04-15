@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+chi=0.35
+Q=np.arange(1.001,15,0.2)
+d=0.95
+vol=106
+mw=100000
+top=-np.log(1-(1/Q))-(1/Q)-(chi/(Q**2))
+bottom=vol*((1/(Q**(1/3)))-(0.5/Q))
+mc=d/((d/mw)+(top/bottom))
+
+
+plt.plot(Q,mc)
+plt.xlabel('Q')
+plt.ylabel('Mc')
+plt.grid(linestyle='--')
+
+plt.savefig('line_plot.pdf')
